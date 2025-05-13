@@ -1,41 +1,40 @@
 package TaskManager;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+public class TaskMaster {
 
-public class TaskMaster{
-
-
-    public static void remove_task(ArrayList<Task> taskList, int index){
+    public static void remove_task(ArrayList<Task> taskList, int index) {
         taskList.remove(index);
     }
 
-    public static void edit_task(ArrayList<Task> taskList, int index){
+    public static void edit_task(ArrayList<Task> taskList, int index) {
         Scanner input = new Scanner(System.in);
         System.out.println("Edit a Task");
         new_line();
         boolean edit = true;
-        while (edit) { 
+        while (edit) {
             System.out.println("Title, Description, Progress, Due Date, Swap");
             new_line();
             System.out.println(":");
-           String command = input.nextLine();
-           new_line();
-           switch (command) {
-               case "name", "title", "n", "t" -> {
+            String command = input.nextLine();
+            new_line();
+            switch (command) {
+                case "name", "title", "n", "t" -> {
                     System.out.println("Name:");
                     taskList.get(index).title = input.nextLine();
                     edit = false;
                 }
-                case "desc", "description", "d" ->{
+                case "desc", "description", "d" -> {
                     System.out.println("Description:");
                     taskList.get(index).description = input.nextLine();
                     edit = false;
                 }
-                case "swap", "s"->{
+                case "swap", "s" -> {
                     System.out.println("Which position:");
                     try {
-                        int ind = input.nextInt()-1;
+                        int ind = input.nextInt() - 1;
                         input.nextLine();
                         if (ind >= taskList.size()) {
                             throw new Exception("Not Valid");
@@ -49,22 +48,23 @@ public class TaskMaster{
                         System.out.println("Not a valid index");
                     }
                 }
-                case "prog", "progress","p" ->{
+                case "prog", "progress", "p" -> {
                     System.out.println("Progress:");
                     taskList.get(index).progress = input.nextLine();
                     edit = false;
                 }
-                case "date", "due date", "dd" ->{
+                case "date", "due date", "dd" -> {
                     System.out.println("Due Date:");
                     taskList.get(index).due_date = input.nextLine();
                     edit = false;
                 }
-               default -> System.out.println("Not a valid property");
-           } 
+                default ->
+                    System.out.println("Not a valid property");
+            }
         }
     }
 
-    public static void task_creator(ArrayList<Task> taskList){
+    public static void task_creator(ArrayList<Task> taskList) {
         Scanner input = new Scanner(System.in);
         Task new_task = new Task();
         new_line();
@@ -87,7 +87,7 @@ public class TaskMaster{
         new_line();
     }
 
-    public static void new_line(){
+    public static void new_line() {
         System.out.println("------------------------------------------------------");
     }
 }

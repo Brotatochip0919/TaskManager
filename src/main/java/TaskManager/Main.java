@@ -42,7 +42,7 @@ public class Main {
                         if (com_part[1] != null) {
                             new_line();
                             System.out.println(allTasks.get(Integer.parseInt(com_part[1]) - 1).toString());
-                            System.out.println(allTasks.get(Integer.parseInt(com_part[1]) - 1).description);
+                            System.out.println("\n" + allTasks.get(Integer.parseInt(com_part[1]) - 1).description);
                             new_line();
                         }
                     } catch (Exception e) {
@@ -75,8 +75,10 @@ public class Main {
                 default -> {
                     new_line();
                     System.out.println("Not a valid command.");
+                    new_line();
                 }
             }
+            save(sav_loc);
         }
         save(sav_loc);
     }

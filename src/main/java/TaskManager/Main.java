@@ -32,6 +32,7 @@ public class Main {
                         new_line();
                     } catch (Exception e) {
                         System.out.println("Not a valid Index");
+                        System.out.println("Format: remove #");
                         new_line();
                     }
 
@@ -53,13 +54,13 @@ public class Main {
                 case "edit" -> {
                     try {
                         new_line();
-                        System.out.println("Index: ");
                         TaskMaster.edit_task(allTasks, Integer.parseInt(com_part[1]) - 1);
                         new_line();
                         System.out.println("Succesfully edited Task.");
                         new_line();
                     } catch (Exception e) {
                         System.out.println("Not a valid Index");
+                        System.out.println("Format: edit #");
                         new_line();
                     }
                 }

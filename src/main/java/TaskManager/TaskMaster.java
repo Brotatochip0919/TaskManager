@@ -58,6 +58,9 @@ public class TaskMaster {
                     taskList.get(index).due_date = input.nextLine();
                     edit = false;
                 }
+                case "exit", "quit", "cancel"->{
+                    edit = false;
+                }
                 default ->
                     System.out.println("Not a valid property");
             }

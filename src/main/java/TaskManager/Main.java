@@ -2,6 +2,7 @@ package TaskManager;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -93,12 +94,15 @@ public class Main {
             while (reader.hasNextLine()) {
                 String[] data = (reader.nextLine()).split(",");
                 Task new_task = new Task(data[0], data[1], data[2], data[3]);
-                allTasks.add(new_task);
+                if (!data[2].toLowerCase().equals("done") && !LocalDate.parse(data[3]).isBefore(LocalDate.now())){
+                    allTasks.add(new_task);
+                }
+
             }
 
         } catch (Exception e) {
             new_line();
-            System.out.println("An error occured...");
+            System.out.println("An error occured: " + e);
             System.out.println("Type: Load Error");
             new_line();
         }

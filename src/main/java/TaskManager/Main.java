@@ -14,6 +14,8 @@ public class Main {
         boolean running = true;
         load(sav_loc);
         Scanner input = new Scanner(System.in);
+        new_line();
+        new_line();
         while (running) {
             System.out.println("Enter Command: ");
             String command = input.nextLine();
@@ -95,8 +97,10 @@ public class Main {
             }
 
         } catch (Exception e) {
+            new_line();
             System.out.println("An error occured...");
             System.out.println("Type: Load Error");
+            new_line();
         }
     }
 
@@ -112,8 +116,10 @@ public class Main {
             }
 
         } catch (Exception e) {
+            new_line();
             System.out.println("An error occured...");
             System.out.println("Type: Save Error");
+            new_line();
         }
 
     }

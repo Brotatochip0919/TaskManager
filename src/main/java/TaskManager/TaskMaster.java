@@ -1,9 +1,13 @@
 package TaskManager;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TaskMaster {
+
+    static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 
     public static void remove_task(ArrayList<Task> taskList, int index) {
         taskList.remove(index);
@@ -55,10 +59,21 @@ public class TaskMaster {
                 }
                 case "date", "due date", "dd" -> {
                     System.out.println("Due Date:");
-                    taskList.get(index).due_date = input.nextLine();
-                    edit = false;
+                    boolean date_run = true;
+                    while (date_run) {
+                        try {
+                            System.out.println("Enter in format: MM-DD-YYYY");
+                            taskList.get(index).due_date = LocalDate.parse(input.nextLine(), dateFormatter);
+                            new_line();
+                            date_run = false;
+                            edit = false;
+                        } catch (Exception e) {
+                            System.out.println("Incorrect Date Format");
+                            new_line();
+                        }
+                    }
                 }
-                case "exit", "quit", "cancel"->{
+                case "exit", "quit", "cancel" -> {
                     edit = false;
                 }
                 default ->
@@ -83,7 +98,20 @@ public class TaskMaster {
         new_task.progress = input.nextLine();
         new_line();
         System.out.println("Due Date: ");
-        new_task.due_date = input.nextLine();
+
+        boolean date_run = true;
+        while (date_run) {
+            try {
+                System.out.println("Enter in format: MM-DD-YYYY");
+                new_task.due_date = LocalDate.parse(input.nextLine(), dateFormatter);
+                new_line();
+                date_run = false;
+            } catch (Exception e) {
+                System.out.println("Incorrect Date Format");
+                new_line();
+            }
+        }
+
         new_line();
         taskList.add(new_task);
         System.out.println("Task successfully created.");

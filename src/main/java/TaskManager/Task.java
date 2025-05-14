@@ -1,24 +1,28 @@
 package TaskManager;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Task {
 
     public String title;
     public String description;
     public String progress;
-    public String due_date;
+    public LocalDate due_date;
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 
     public Task() {
         title = "";
         description = "";
         progress = "";
-        due_date = "";
+        due_date = LocalDate.MIN;
     }
 
     public Task(String name, String desc, String prog, String due) {
         title = name;
         description = desc;
         progress = prog;
-        due_date = due;
+        due_date = LocalDate.parse(due);
     }
 
     @Override

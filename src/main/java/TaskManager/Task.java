@@ -1,7 +1,6 @@
 package TaskManager;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Task {
 
@@ -9,7 +8,6 @@ public class Task {
     public String description;
     public String progress;
     public LocalDate due_date;
-    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 
     public Task() {
         title = "";

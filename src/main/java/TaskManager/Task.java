@@ -15,7 +15,7 @@ public class Task {
         title = "";
         description = "";
         progress = "";
-        due_date = LocalDate.MIN;
+        due_date = LocalDate.now();
     }
 
     public Task(String name, String desc, String prog, String due) {

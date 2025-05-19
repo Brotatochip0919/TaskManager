@@ -74,7 +74,7 @@ public class Main {
                     System.out.println("add, edit, remove, view, quit");
                 }
 
-                case "quit" -> {
+                case "quit", "exit" -> {
                     running = false;
                 }
                 default -> {

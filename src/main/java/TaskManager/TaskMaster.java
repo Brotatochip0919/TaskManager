@@ -64,6 +64,10 @@ public class TaskMaster {
                         try {
                             System.out.println("Enter in format: MM-DD-YYYY");
                             taskList.get(index).due_date = LocalDate.parse(input.nextLine(), dateFormatter);
+                            if (taskList.get(index).due_date.isBefore(LocalDate.now())) {
+                                System.out.println("Date cannot be before today");
+                                throw new Exception();
+                            }
                             new_line();
                             date_run = false;
                             edit = false;
@@ -104,6 +108,10 @@ public class TaskMaster {
             try {
                 System.out.println("Enter in format: MM-DD-YYYY");
                 new_task.due_date = LocalDate.parse(input.nextLine(), dateFormatter);
+                if (new_task.due_date.isBefore(LocalDate.now())) {
+                    System.out.println("Date cannot be before today");
+                    throw new Exception();
+                }
                 new_line();
                 date_run = false;
             } catch (Exception e) {

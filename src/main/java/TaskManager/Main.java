@@ -16,6 +16,7 @@ public class Main {
         load(sav_loc);
         Scanner input = new Scanner(System.in);
         new_line();
+        due_today();
         new_line();
         while (running) {
             System.out.println("Enter Command: ");
@@ -23,7 +24,7 @@ public class Main {
             command = command.toLowerCase();
             String[] com_part = command.split(" ");
             switch (com_part[0]) {
-                case "add" -> {
+                case "add", "create", "start" -> {
                     TaskMaster.task_creator(allTasks);
                 }
                 case "remove" -> {
@@ -133,9 +134,22 @@ public class Main {
     }
 
     public static void view_tasks() {
+        due_today();
         new_line();
         for (int i = 0; i < allTasks.size(); i++) {
             System.out.println((i + 1) + ". " + allTasks.get(i).toString());
+        }
+        new_line();
+    }
+
+    public static void due_today(){
+        System.out.println("Task's Due Today:");
+        new_line();
+        for (int i = 0; i < allTasks.size(); i++) {
+            if (allTasks.get(i).due_date.equals(LocalDate.now())){
+                System.out.println((i + 1) + ". " + allTasks.get(i).toString());
+            }
+        
         }
         new_line();
     }

@@ -95,7 +95,7 @@ public class Main {
             while (reader.hasNextLine()) {
                 String[] data = (reader.nextLine()).split(",");
                 Task new_task = new Task(data[0], data[1], data[2], data[3]);
-                if (!data[2].toLowerCase().equals("done") && !LocalDate.parse(data[3]).isBefore(LocalDate.now())){
+                if (!data[2].toLowerCase().equals("done") && !LocalDate.parse(data[3]).isBefore(LocalDate.now())) {
                     allTasks.add(new_task);
                 }
 
@@ -142,14 +142,14 @@ public class Main {
         new_line();
     }
 
-    public static void due_today(){
+    public static void due_today() {
         System.out.println("Task's Due Today:");
         new_line();
         for (int i = 0; i < allTasks.size(); i++) {
-            if (allTasks.get(i).due_date.equals(LocalDate.now())){
+            if (allTasks.get(i).due_date.equals(LocalDate.now())) {
                 System.out.println((i + 1) + ". " + allTasks.get(i).toString());
             }
-        
+
         }
     }
 

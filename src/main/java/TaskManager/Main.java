@@ -71,7 +71,7 @@ public class Main {
                 case "help" -> {
                     new_line();
                     System.out.println("Try the commands:");
-                    System.out.println("add, edit, remove, view, quit");
+                    System.out.println("add, edit #, remove #, view (#), quit");
                 }
 
                 case "quit", "exit" -> {
@@ -86,6 +86,8 @@ public class Main {
             save(sav_loc);
         }
         save(sav_loc);
+        System.out.println("Exited Program");
+        
     }
 
     public static void load(String loc) {
@@ -118,6 +120,7 @@ public class Main {
                     writer.write(line + "\n");
 
                 }
+            System.out.println("Tasks saved successfully");
             }
 
         } catch (Exception e) {
